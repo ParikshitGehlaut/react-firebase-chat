@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
 
 const Chat = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
+
+  const endRef = useRef(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   const handleEmoji = (e) => {
     setText((prev) => prev + e.emoji);
@@ -30,7 +36,76 @@ const Chat = () => {
           <img src="./info.png" alt="" />
         </div>
       </div>
-      <div className="center"></div>
+      <div className="center">
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              natus et, veniam soluta voluptatum est minima iure eligendi itaque
+              aliquam omnis!
+            </p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              natus et, vel expedita unde odit alias saepe animi? Minus, ex,
+              doloribus culpa eligendi itaque aliquam omnis!
+            </p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              natus et, vel expedita unde odit alias saepe animi? Minus, ex,
+              doloribus culpa veniam soluta voluptatum est minima iure eligendi
+              itaque aliquam omnis!
+            </p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              natus et, veniam soluta voluptatum est minima iure eligendi itaque
+              aliquam omnis!
+            </p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <img src="./bg.jpg" alt="" />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              natus et, vel expedita unde odit alias saepe animi? Minus, ex,
+              doloribus culpa eligendi itaque aliquam omnis!
+            </p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src="./avatar.png" alt="" />
+          <div className="texts">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+              natus et, vel expedita unde odit alias saepe animi? Minus, ex,
+              doloribus culpa veniam soluta voluptatum est minima iure eligendi
+              itaque aliquam omnis!
+            </p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div ref={endRef}></div>
+      </div>
       <div className="bottom">
         <div className="icons">
           <img src="./camera.png" alt="" />
