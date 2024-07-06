@@ -20,6 +20,10 @@ const Login = () => {
     e.preventDefault();
     toast.success("Hello");
   };
+  const handleRegister = (e) => {
+    e.preventDefault();
+    toast.success("Hello");
+  };
 
   return (
     <div className="login">
@@ -34,7 +38,7 @@ const Login = () => {
       <div className="separator"></div>
       <div className="item">
         <h2>Create an Account</h2>
-        <form action="">
+        <form onSubmit={handleRegister}>
           <label htmlFor="file">
             <img src={avatar.url || "./avatar.png"} alt="" />
             Upload an Image
