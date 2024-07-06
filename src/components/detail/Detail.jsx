@@ -1,12 +1,14 @@
 import React from "react";
 import "./detail.css";
-
+import { auth } from "../../lib/Firebase";
+import { useUserStore } from "../../lib/userStore";
 const Detail = () => {
+  const { currentUser, isLoading, fetchUserInfo } = useUserStore();
   return (
     <div className="detail">
       <div className="user">
-        <img src="./avatar.png" alt="" />
-        <h2>Jane Doe</h2>
+        <img src={currentUser.avatar || "./avatar.png"} alt="" />
+        <h2>{currentUser.username}</h2>
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
       <div className="info">
@@ -46,7 +48,9 @@ const Detail = () => {
             <img src="./arrowUp.png" alt="" />
           </div>
         </div>
-        <button>Block User</button>
+        <button className="logout" onClick={() => auth.signOut()}>
+          Logout
+        </button>
       </div>
     </div>
   );
